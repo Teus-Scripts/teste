@@ -9164,3 +9164,22 @@ end)
 
 LoadingScriptSuccess = true
 print("Loading Script Success")
+----------------------------------------------------------------------------------
+_G.whiteScreen = false
+_G.fps = 120
+_G.Mode = true
+loadstring(game:HttpGet('https://raw.githubusercontent.com/AloneBiNgu/AloneHub/main/lag'))()
+------------------------------------------------------------------------------------
+  _G.AutoRejoin = true
+       
+    spawn(function()
+    while wait() do
+        if _G.AutoRejoin then
+                getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
+                    if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
+                        game:GetService("TeleportService"):Teleport(game.PlaceId)
+                    end
+                end)
+            end
+        end
+    end)
